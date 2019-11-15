@@ -1,0 +1,10 @@
+kubectl get no
+
+
+kubectl get no -o wide
+
+
+kubectl describe no
+
+
+kubectl get no -o yaml

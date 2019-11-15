@@ -1,0 +1,52 @@
+Step1: Create the Pod
+
+    kubectl apply -f redis.yaml
+
+Step 2: Verify that the Pod’s Container is running, and then watch for changes to the Pod
+
+    kubectl get pod redis --watch
+
+Step 3: In another terminal, get a shell to the running Container
+
+    kubectl exec -it redis -- /bin/bash
+
+Step 4: In your shell, go to /data/redis, and then create a file
+
+    cd /data/redis/
+
+    echo Hello > test-file
+
+Step 5: In your shell, list the running processes
+
+    apt-get update
+
+    apt-get install procps
+
+    ps aux
+
+
+Step 6: In your shell, kill the Redis process
+
+
+    kill <pid>
+
+In your original terminal, watch for changes to the Redis Pod.
+
+
+At this point, the Container has terminated and restarted. This is because the Redis Pod has a restartPolicy of Always
+
+Step 7: Get a shell into the restarted Container
+
+    kubectl exec -it redis -- /bin/bash
+
+Step 8: In your shell, goto /data/redis, and verify that test-file is still there
+
+    cd /data/redis/
+
+    ls
+
+Step 9: Delete the Pod that you created for this exercise
+
+    kubectl delete pod redis
+
+    

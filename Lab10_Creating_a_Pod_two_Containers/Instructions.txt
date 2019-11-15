@@ -1,0 +1,28 @@
+Step 1: Create the Pod and the two Containers
+
+    kubectl apply -f two-container-pod.yaml
+
+Step 2: View information about the Pod and the Containers
+
+    kubectl get pod two-containers --output=yaml
+
+Step 3: Get a shell to nginx Container
+
+    kubectl exec -it two-containers -c nginx-container -- /bin/bash
+
+Step 4: In your shell, verify that nginx is running
+
+    apt-get update
+
+    apt-get install curl procps
+
+    ps aux
+
+Recall that the debian Container created the index.html file in the nginx root directory.
+
+Step 5: Use curl to send a GET request to the nginx server
+
+    curl localhost
+
+
+

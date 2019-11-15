@@ -1,0 +1,42 @@
+Step 1: List the nodes in your cluster
+
+    kubectl get nodes
+
+
+Step 2: Chose one of your nodes, and add a label to it
+
+    kubectl label nodes <your-node-name> environment=production
+
+Step 3: Verify that your chosen node has a environment=production label:
+
+    kubectl get nodes --show-labels
+
+Step 4: Create a pod that gets scheduled to your chosen node
+
+    kubectl apply -f nginx_production.yaml
+
+Step 5: Verify that the pod is running on your chosen node:
+
+    kubectl get pods --output=wide
+
+Step 6: Create a pod that gets scheduled to specific node
+
+    kubectl apply -f pod-nginx-specific-node.yaml
+
+    Now Verify that your Pod is Created or Not
+
+Step 7:  List your pods
+
+    kubectl get pods
+
+Step 8: Now Do the necessary modifications in the pod-nginx-specific-node.yaml file
+
+Step 9: Apply the new Configuration
+
+     kubectl apply -f pod-nginx-specific-node.yaml
+
+Step 10:  Look at the Status of the Pods
+
+    kubectl get pods
+
+

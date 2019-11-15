@@ -1,0 +1,32 @@
+Step 1: Deploy Pod
+
+kubectl run nginx-demo --image=nginx --port=80 --labels="name=nginx-demo"
+
+
+Step 2: Verify the Pod
+
+kubectl get pods
+
+Step 3: Create NodePort service
+
+kubectl apply -f nginx-demo-nodeport-svc.yaml
+
+Step 4: Verify the Services
+
+kubectl get services
+
+Step 5: Check the pods
+
+kubectl get pods -o wide
+
+Step 6: performing the Test ( Node IP Address )
+
+ curl <<IP-ADDRESS>>:30180
+
+Step 7: Using Command line to create NodePort service
+
+kubectl expose deployment nginx-demo --port=80 --type=NodePort
+
+Step 8: Verify the Services
+
+kubectl get services

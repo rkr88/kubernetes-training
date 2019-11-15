@@ -1,0 +1,10 @@
+apiVersion: v1 # Which version of the Kubernetes API you’re using to create this object
+kind: Pod # What kind of object you want to create
+metadata: # Data that helps uniquely identify the object,
+  name: nginx-pod-demo
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.7.9
+    ports:
+    - containerPort: 80

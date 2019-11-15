@@ -1,0 +1,19 @@
+Step 1: Run the NFS Server
+
+kubectl create deployment --image k8s.gcr.io/volume-nfs nfs
+
+Step 2: Execute the PV
+
+kubectl apply -f 01_pv.yaml
+
+Step 3: Execute PVC
+
+kubectl apply -f 02_pvc.yaml
+
+Step 4: deploy the nfs web
+
+kubectl apply -f 03_nfs_web.yaml
+
+Step 5: Execute the Utility File
+
+kubectl apply -f 04_utility.yaml

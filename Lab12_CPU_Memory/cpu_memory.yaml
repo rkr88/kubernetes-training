@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend
+spec:
+  containers:
+  - name: db
+    image: mysql
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: "password"
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m" # converted to its core value, which is potentially fractional, and multiplied by 1024
+      limits:
+        memory: "128Mi"
+        cpu: "500m" # converted to its millicore value and multiplied by 100.
+        # The resulting value is the total amount of CPU time that a container can use every 100ms
+        # A container cannot use more than its share of CPU time during this interval.
+        # The default quota period is 100ms. The minimum resolution of CPU quota is 1ms.
+  - name: wp
+    image: wordpress
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi" # converted to an integer, and used as the value of the --memory flag in the docker run command.
+        cpu: "500m"

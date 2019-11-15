@@ -1,0 +1,9 @@
+Step 1: Run the NFS Server
+
+kubectl create deployment --image k8s.gcr.io/volume-nfs nfs
+
+Step 2: Execute nfs volume file
+
+Step 3: execture nfs pvc file
+
+Step 4: execute pv pod file

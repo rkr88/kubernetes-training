@@ -1,0 +1,25 @@
+
+Step 1: Create the Pod
+
+    kubectl apply -f init-containers.yaml
+
+Step 2: Verify that the nginx container is running
+
+    kubectl get pod init-demo
+
+The output should show that the nginx container is running
+
+Step 3:
+
+    kubectl exec -it init-demo -- /bin/bash
+
+Step 4: In your shell, send a GET request to the nginx server
+
+    apt-get update
+
+    apt-get install curl
+
+    curl localhost
+
+
+

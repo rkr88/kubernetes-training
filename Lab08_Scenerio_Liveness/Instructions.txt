@@ -1,0 +1,47 @@
+Activity 1
+**************************************************
+Step 1: 
+
+    kubectl apply -f 01_liveness_exec.yaml
+
+Within 30 seconds
+
+Step 2:
+
+    kubectl describe pod liveness-exec
+
+Look at the Output and After few more seconds
+
+Step 3:
+
+    kubectl describe pod liveness-exec
+
+Step 4:
+
+    kubectl get pod liveness-exec
+
+Activity 2
+**************************************************
+
+Step 1: 
+
+    kubectl apply -f 02_liveness_http.yaml
+
+Step 2:
+
+    kubectl describe pod liveness-http
+
+
+Activity 3
+**************************************************
+
+Step 1: 
+
+    kubectl apply -f 03_liveness_tcp.yaml
+
+Step 2:
+
+    kubectl describe pod goproxy
+
+
+
